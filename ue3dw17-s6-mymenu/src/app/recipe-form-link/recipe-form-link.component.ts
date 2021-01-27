@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Ingredient } from '../../models/ingredient.model'
+import { IngredientService } from '../ingredient.service';
 
 @Component({
   selector: 'app-recipe-form-link',
@@ -9,11 +10,16 @@ import { Ingredient } from '../../models/ingredient.model'
 })
 export class RecipeFormLinkComponent implements OnInit {
   ingredients = new FormControl();
-  ingredientsList: Ingredient[] = [{'_id': 42,'name':'Salade'},{'_id': 784,'name':'Tomates'},{'_id': 7946,'name':'Oignons'}];
+  ingredientsList: Ingredient[];
 
-  constructor() { }
+  constructor(private ingredientService: IngredientService) { }
 
   ngOnInit(): void {
+    this.getIngredients()
+  }
+
+  getIngredients(): void {
+    this.ingredientService.getIngredients().subscribe(ing =>this.ingredientsList = ing.data ?? [{_id:0,name:"non"}]);
   }
 
 }
