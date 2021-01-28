@@ -11,11 +11,12 @@ export default function (app: Application): Model<any> {
   const { Schema } = mongooseClient;
   const schema = new Schema({
     titre: { type: String, required: true },
-    duree: { type: Number, required: true },
-    url: { type: String, required: true },
-    quantite: { type: String, required: true },
-    instructions: {content:{type:String},required:true,type:Array},
-    ingredients: {unit:{type:String},ingredientId:{type:String},quantite:{type:Number},required:true,type:Array}
+    duree: { type: Number, required: false },
+    url: { type: String, required: false },
+    quantite: { type: String, required: false },
+    instructions: {content:{type:String},required:false,type:Array},
+    ingredients: {unit:{type:String},ingredientId:{type:String},quantite:{type:Number},required:false,type:Array},
+    type: {type: String, enum:['link','details'], required: true}
 
   }, {
     timestamps: true

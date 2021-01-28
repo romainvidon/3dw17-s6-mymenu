@@ -1,0 +1,19 @@
+<form >
+
+  <mat-form-field>
+    <mat-label>Nom</mat-label>
+    <input #recipeName matInput type="text">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Lien</mat-label>
+    <input #recipeLink matInput type="url">
+  </mat-form-field>
+  <!--<mat-form-field>
+    <mat-label>Ingrédients</mat-label>
+    <mat-select multiple #recipeIngredients>
+      <mat-option *ngFor="let ingredient of ingredientsList" [value]="ingredient._id">{{ingredient.name}}</mat-option>
+    </mat-select>
+  </mat-form-field>-->
+  
+  <button (click)="add(recipeName.value, recipeLink.value)" mat-raised-button color="primary" type="button">Ajouter</button>
+</form>
