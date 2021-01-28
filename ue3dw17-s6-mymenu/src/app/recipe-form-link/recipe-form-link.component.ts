@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Ingredient } from '../../models/ingredient.model'
 import { IngredientService } from '../ingredient.service';
@@ -9,17 +9,10 @@ import { IngredientService } from '../ingredient.service';
   styleUrls: ['./recipe-form-link.component.scss']
 })
 export class RecipeFormLinkComponent implements OnInit {
-  ingredients = new FormControl();
-  ingredientsList: Ingredient[];
 
-  constructor(private ingredientService: IngredientService) { }
+  @Output() newItemEvent = new EventEmitter<string>();
+  constructor() { }
 
-  ngOnInit(): void {
-    this.getIngredients()
-  }
-
-  getIngredients(): void {
-    this.ingredientService.getIngredients().subscribe(ing =>this.ingredientsList = ing.data ?? [{_id:0,name:"non"}]);
-  }
+  ngOnInit(){}
 
 }
