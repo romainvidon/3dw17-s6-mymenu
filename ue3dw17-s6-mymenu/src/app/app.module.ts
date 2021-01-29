@@ -11,6 +11,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { HttpClientModule } from '@angular/common/http';
+import { IngredientsAddComponent } from './ingredients-add/ingredients-add.component';
+import { ListeIngredientsComponent } from './liste-ingredients/liste-ingredients.component';
+import { IngredientsModifierComponent } from './ingredients-modifier/ingredients-modifier.component';
 
 
 
@@ -20,7 +23,10 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     AppComponent,
     RecipeFormLinkComponent,
-    RecipeAddLinkComponent
+    RecipeAddLinkComponent,
+    IngredientsAddComponent,
+    ListeIngredientsComponent,
+    IngredientsModifierComponent
   ],  
   imports: [
     BrowserModule,

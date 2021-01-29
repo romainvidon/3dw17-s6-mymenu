@@ -1,0 +1,8 @@
+<p>Liste des ingredients :</p>
+<div class="listeIngredients">
+    <ul *ngFor="let ingredient of ingredientsList">
+        <li>{{ingredient.name}}</li>
+        <button mat-raised-button color='primary' type="button" [routerLink]="['/ingredients/update']">Modifier</button>
+        <button mat-raised-button color='warn' type="button">Supprimer</button>
+    </ul>
+</div>

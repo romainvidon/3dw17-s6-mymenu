@@ -1,0 +1,10 @@
+<form>
+    <mat-form-field>
+      <mat-label>Nom ingrédient</mat-label>
+      <input #ingredientTitle matInput type="text">
+    </mat-form-field>
+    <button mat-raised-button type="button" color='primary' (click)='update(ingredientTitle.value);toogleMessage();'>Modifier</button>
+    <p *ngIf='showMessage'>L'ingrédient a été modifié</p>
+    <!--<button mat-raised-button color='warn'>Annuler</button>-->
+  </form>
+  
