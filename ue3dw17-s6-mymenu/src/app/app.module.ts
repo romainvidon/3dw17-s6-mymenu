@@ -14,7 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { IngredientsAddComponent } from './ingredients-add/ingredients-add.component';
 import { ListeIngredientsComponent } from './liste-ingredients/liste-ingredients.component';
 import { IngredientsModifierComponent } from './ingredients-modifier/ingredients-modifier.component';
-
+import { RecipeEditLinkComponent } from './recipe-edit-link/recipe-edit-link.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -26,7 +27,8 @@ import { IngredientsModifierComponent } from './ingredients-modifier/ingredients
     RecipeAddLinkComponent,
     IngredientsAddComponent,
     ListeIngredientsComponent,
-    IngredientsModifierComponent
+    IngredientsModifierComponent,
+    RecipeEditLinkComponent
   ],  
   imports: [
     BrowserModule,
@@ -37,6 +39,7 @@ import { IngredientsModifierComponent } from './ingredients-modifier/ingredients
     MatButtonModule,
     MatSelectModule,
     HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

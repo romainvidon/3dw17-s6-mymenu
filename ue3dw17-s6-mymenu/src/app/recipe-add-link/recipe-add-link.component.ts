@@ -24,7 +24,7 @@ export class RecipeAddLinkComponent implements OnInit {
     this.ingredientService.getIngredients().subscribe(ing =>this.ingredientsList = ing.data ?? [{_id:0,name:"non"}]);
   }*/
   add(name:string, link: string):void{
-    let recipe: RecipeLink = {"_id": null,"titre":name,"url":link,"type":"link"};
+    let recipe: RecipeLink = {"_id": null,"name":name,"url":link,"type":"link"};
     this.recipeService.addLink(recipe).subscribe();
     console.log(name);
     console.log(link);
