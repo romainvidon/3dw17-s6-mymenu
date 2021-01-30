@@ -4,6 +4,7 @@ import { Ingredient } from 'src/models/ingredient.model';
 import { IngredientService } from '../ingredient.service';
 import { RecipeService } from '../recipe.service';
 import { RecipeLink } from 'src/models/recipe-link.model';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-recipe-add-link',
@@ -16,7 +17,7 @@ export class RecipeAddLinkComponent implements OnInit {
 
   ingredients = new FormControl();
   ingredientsList: Ingredient[];
-  constructor(private recipeService: RecipeService) { }
+  constructor(private recipeService: RecipeService, private _snackBar: MatSnackBar) { }
   
   ngOnInit(): void {
 
@@ -28,9 +29,13 @@ export class RecipeAddLinkComponent implements OnInit {
   }*/
   add():void{
     this.recipeService.addLink(this.recipe).subscribe(res => {
-      if(!res){
+      if(res){
+        this._snackBar.open("Recette ajoutée avec succès : " + res.name);
+      } else {
         console.log("erreur");
       }
     });
   }
+
+  
 }

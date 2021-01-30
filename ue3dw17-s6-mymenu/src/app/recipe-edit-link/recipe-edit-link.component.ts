@@ -4,6 +4,7 @@ import { RecipeService } from '../recipe.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { apiURL } from '../config';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-recipe-edit-link',
@@ -14,7 +15,7 @@ export class RecipeEditLinkComponent implements OnInit {
 
   id: string;
   //private recipeService: RecipeService;
-  constructor(private recipeService: RecipeService, private route: ActivatedRoute) { }
+  constructor(private recipeService: RecipeService, private route: ActivatedRoute, private _snackBar: MatSnackBar) { }
   recipe: RecipeLink = {"name":"","type":"link","_id":"","url":""};
 
   test(){
@@ -36,7 +37,15 @@ export class RecipeEditLinkComponent implements OnInit {
     }
   }
   edit(){
-    this.recipeService.editLink(this.recipe).subscribe();
+    this.recipeService.editLink(this.recipe).subscribe(
+      res => {
+        if(res){
+          this._snackBar.open("Recette modifiée avec succès : " + res.name);
+        } else {
+          console.log("erreur");
+        }
+      }
+    );
   }
 
   ngOnInit(): void {
