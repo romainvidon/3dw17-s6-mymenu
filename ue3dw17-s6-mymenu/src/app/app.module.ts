@@ -16,6 +16,7 @@ import { ListeIngredientsComponent } from './liste-ingredients/liste-ingredients
 import { IngredientsModifierComponent } from './ingredients-modifier/ingredients-modifier.component';
 import { RecipeEditLinkComponent } from './recipe-edit-link/recipe-edit-link.component';
 import { FormsModule } from '@angular/forms';
+import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 
 
 
@@ -38,10 +39,14 @@ import { FormsModule } from '@angular/forms';
     MatInputModule,
     MatButtonModule,
     MatSelectModule,
+    MatSnackBarModule,
     HttpClientModule,
     FormsModule,
+
   ],
-  providers: [],
+  providers: [
+    {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {action:"OK",duration: 2500}}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
