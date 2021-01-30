@@ -16,8 +16,8 @@ export default function (app: Application): Model<any> {
     quantite: { type: String, required: false },
     instructions: {content:{type:String},required:false,type:Array},
     ingredients: {unit:{type:String},ingredientId:{type:String},quantite:{type:Number},required:false,type:Array},
-    type: {type: String, enum:['link','details'], required: true}
-
+    type: {type: String, enum:['link','details'], required: true},
+    deletedAt:{}
   }, {
     timestamps: true
   });
