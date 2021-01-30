@@ -2,11 +2,11 @@
 
   <mat-form-field>
     <mat-label>Nom</mat-label>
-    <input #recipeName matInput type="text">
+    <input #recipeName matInput type="text" [(ngModel)]="recipe.name" name="name">
   </mat-form-field>
   <mat-form-field>
     <mat-label>Lien</mat-label>
-    <input #recipeLink matInput type="url">
+    <input #recipeLink matInput type="url" [(ngModel)]="recipe.url" name="url">
   </mat-form-field>
   <!--<mat-form-field>
     <mat-label>Ingrédients</mat-label>
@@ -15,5 +15,5 @@
     </mat-select>
   </mat-form-field>-->
   
-  <button (click)="add(recipeName.value, recipeLink.value)" mat-raised-button color="primary" type="button">Ajouter</button>
+  <button (click)="add()" mat-raised-button color="primary" type="button">Ajouter</button>
 </form>
