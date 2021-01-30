@@ -14,7 +14,6 @@
         <mat-option *ngFor="let ingredient of ingredientsList" [value]="ingredient._id">{{ingredient.name}}</mat-option>
       </mat-select>
     </mat-form-field>-->
-    <button type="button" mat-raised-button (click)="test()">Test</button>
     <button (click)="edit(recipeName.value, recipeLink.value)" mat-raised-button color="primary" type="button">Éditer</button>
   </form>
   

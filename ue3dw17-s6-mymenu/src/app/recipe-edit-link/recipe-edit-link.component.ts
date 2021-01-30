@@ -35,11 +35,8 @@ export class RecipeEditLinkComponent implements OnInit {
       console.log("rip, ça a pas marché");
     }
   }
-  edit(name: string, link: string){
-    let recipe: RecipeLink = {"_id": this.id,"name":name,"url":link,"type":"link"};
-    this.recipeService.addLink(recipe).subscribe();
-    console.log(name);
-    console.log(link);
+  edit(){
+    this.recipeService.editLink(this.recipe).subscribe();
   }
 
   ngOnInit(): void {

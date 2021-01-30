@@ -15,12 +15,12 @@ export class RecipeService {
     
   }
   getRecipe(id: string){
-    return this.http.get<RecipeLink>(apiURL + this.url + "/"+id, httpOptions);
+    return this.http.get<RecipeLink>(apiURL + this.url + "/" +id, httpOptions);
   }
   addLink(recipe: RecipeLink): Observable<RecipeLink>{
     return this.http.post<RecipeLink>(apiURL + this.url, recipe, httpOptions);
   }
   editLink(recipe: RecipeLink): Observable<RecipeLink>{
-    return this.http.put<RecipeLink>(apiURL + this.url + recipe._id, recipe, httpOptions);
+    return this.http.put<RecipeLink>(apiURL + this.url + "/"+ recipe._id, recipe, httpOptions);
   }
 }
