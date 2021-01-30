@@ -1,0 +1,19 @@
+<form >
+
+    <mat-form-field>
+      <mat-label>Nom</mat-label>
+      <input #recipeName matInput [(ngModel)]="recipe.name" name="name">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Lien</mat-label>
+      <input #recipeLink matInput [(ngModel)]="recipe.url" name="url" type="url">
+    </mat-form-field>
+    <!--<mat-form-field>
+      <mat-label>Ingrédients</mat-label>
+      <mat-select multiple #recipeIngredients>
+        <mat-option *ngFor="let ingredient of ingredientsList" [value]="ingredient._id">{{ingredient.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>-->
+    <button (click)="edit(recipeName.value, recipeLink.value)" mat-raised-button color="primary" type="button">Éditer</button>
+  </form>
+  

@@ -12,21 +12,25 @@ import { RecipeLink } from 'src/models/recipe-link.model';
 })
 export class RecipeAddLinkComponent implements OnInit {
   
+  recipe: RecipeLink = {"name":"","type":"link","_id":null,"url":""};
+
   ingredients = new FormControl();
   ingredientsList: Ingredient[];
   constructor(private recipeService: RecipeService) { }
   
   ngOnInit(): void {
+
     //this.getIngredients()
   }
 
   /*getIngredients(): void {
     this.ingredientService.getIngredients().subscribe(ing =>this.ingredientsList = ing.data ?? [{_id:0,name:"non"}]);
   }*/
-  add(name:string, link: string):void{
-    let recipe: RecipeLink = {"_id": null,"titre":name,"url":link,"type":"link"};
-    this.recipeService.addLink(recipe).subscribe();
-    console.log(name);
-    console.log(link);
+  add():void{
+    this.recipeService.addLink(this.recipe).subscribe(res => {
+      if(!res){
+        console.log("erreur");
+      }
+    });
   }
 }

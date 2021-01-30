@@ -1,9 +1,6 @@
-import { Ingredient } from "./ingredient.model";
+import { Recipe } from "./recipe.model";
 
-export interface RecipeLink {
-    _id: number;
-    titre: string;
+export interface RecipeLink extends Recipe{
     url: string;
     type: "link";
-    ingredients?: Ingredient[];
   }
