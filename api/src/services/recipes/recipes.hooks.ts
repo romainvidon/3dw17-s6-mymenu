@@ -1,10 +1,22 @@
+import { softDelete } from "feathers-hooks-common";
+import { Context } from "mocha";
 
 export default {
   before: {
-    all: [],
+    all: [softDelete({
+      // context is the normal hook context
+      deletedQuery: async context => {
+        return { deletedAt: -1};
+      },
+      removeData: async context => {
+        return { deletedAt: new Date().toISOString().toString()  };
+      }
+    })],
     find: [],
     get: [],
-    create: [],
+    create: [(context: Context) => {
+      context.data.deletedAt = -1;
+    }],
     update: [],
     patch: [],
     remove: []

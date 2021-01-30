@@ -11,7 +11,7 @@ export default function (app: Application): Model<any> {
   const { Schema } = mongooseClient;
   const schema = new Schema({
     name: { type: String, required: true },
-    deletedAt: {type: String}
+    deletedAt: {}
   }, {
     timestamps: true
   });
