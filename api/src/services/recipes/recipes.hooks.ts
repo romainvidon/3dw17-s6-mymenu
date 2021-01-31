@@ -14,7 +14,7 @@ export default {
     })],
     find: [],
     get: [],
-    create: [(context: Context) => {
+    create: [(context: any) => {
       context.data.deletedAt = -1;
     }],
     update: [],

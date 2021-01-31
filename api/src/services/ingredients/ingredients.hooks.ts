@@ -1,5 +1,5 @@
 import { softDelete } from "feathers-hooks-common";
-import { Context } from "mocha";
+import { HookContext } from "@feathersjs/feathers";
 
 export default {
   before: {
@@ -14,7 +14,7 @@ export default {
     })],
     find: [],
     get: [],
-    create: [(context: Context) => {
+    create: [(context: any) => {  
       context.data.deletedAt = -1;
     }],
     update: [],
