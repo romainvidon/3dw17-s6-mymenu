@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { IngredientService } from '../ingredient.service';
 import { Ingredient } from 'src/models/ingredient.model';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-ingredients-modifier',
@@ -8,20 +10,24 @@ import { Ingredient } from 'src/models/ingredient.model';
   styleUrls: ['./ingredients-modifier.component.scss']
 })
 export class IngredientsModifierComponent implements OnInit {
-    //Fonction et variable pour afficher un message quand l'élément est ajouté.
-    showMessage = false;
-    toogleMessage(){
-        this.showMessage = !this.showMessage;
+    id: string;
+    ingredient:Ingredient={"_id":"","name":""};
+
+  constructor(private ingredientService: IngredientService, private _snackBar: MatSnackBar,private route: ActivatedRoute) {}
+
+  getIngredient(id: string): void{
+    this.ingredientService.getIngredient(this.id).subscribe();
+    }
+    update():void{
+    this.ingredientService.updateIngredients(this.ingredient).subscribe(res => {
+        if(res){
+            this._snackBar.open("Ingrédient modifié avec succès : " + res.name);
+        }
+        });
     }
 
-  constructor(private ingredientService: IngredientService) { }
-
   ngOnInit(): void {
-  }
-  update(title:string):void{
-    let ingredient: Ingredient = {"_id": null,"name":title};
-    this.ingredientService.updateIngredients(ingredient).subscribe();
-    console.log(title);
-  }
+    this.route.paramMap.subscribe((params) => {this.id = params.get("id"); this.getIngredient(this.id)});
+    }
 
 }
