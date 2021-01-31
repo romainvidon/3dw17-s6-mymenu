@@ -17,6 +17,13 @@ import { IngredientsModifierComponent } from './ingredients-modifier/ingredients
 import { RecipeEditLinkComponent } from './recipe-edit-link/recipe-edit-link.component';
 import { FormsModule } from '@angular/forms';
 import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
+import { RecipesComponent } from './recipes/recipes.component';
+import { RecipeListComponent } from './recipe-list/recipe-list.component';
+import { RecipeComponent } from './recipe/recipe.component';
+import { MatCardModule } from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatIconModule} from '@angular/material/icon';
+
 
 
 
@@ -29,7 +36,10 @@ import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/mater
     IngredientsAddComponent,
     ListeIngredientsComponent,
     IngredientsModifierComponent,
-    RecipeEditLinkComponent
+    RecipeEditLinkComponent,
+    RecipesComponent,
+    RecipeListComponent,
+    RecipeComponent
   ],  
   imports: [
     BrowserModule,
@@ -40,6 +50,9 @@ import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/mater
     MatButtonModule,
     MatSelectModule,
     MatSnackBarModule,
+    MatCardModule,
+    MatGridListModule,
+    MatIconModule,
     HttpClientModule,
     FormsModule,
 
